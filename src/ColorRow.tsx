@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import _ from "lodash";
+import { useState } from "react";
 import "./ColorRow.css";
 
 interface ColorRowType {
@@ -27,19 +27,22 @@ function getColor(value: number, data: number[][]) {
 
 const ColorRow = (props: ColorRowType) => {
   const { data, row } = props;
-  const [hoverValue, setHoverValue] = useState<number | null>(null);
+  const [hoverIdx, setHoverIdx] = useState<number | null>(null);
 
   return (
     <>
-      {_.map(row, (value) => (
+      {_.map(row, (value, idx) => (
         <div
           className="box"
           style={{ backgroundColor: `${getColor(value, data)}` }}
-          onMouseMove={() => setHoverValue(value)}
-          onMouseLeave={() => setHoverValue(null)}
-        />
+          onMouseEnter={() => setHoverIdx(idx)}
+          onMouseLeave={() => setHoverIdx(null)}
+        >
+          {!_.isNil(hoverIdx) && idx === hoverIdx && (
+            <div className="value">Value: {row[hoverIdx]}</div>
+          )}
+        </div>
       ))}
-      {hoverValue && <div className="value">Value: {hoverValue}</div>}
     </>
   );
 };

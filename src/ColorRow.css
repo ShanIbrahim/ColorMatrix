@@ -10,7 +10,8 @@
 
 .value {
   position: absolute;
-  left: 30;
+  left: 20px;
+  z-index: 100;
   width: 60px;
   border: 1px solid black;
   border-radius: 5px;
