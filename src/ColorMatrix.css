@@ -1,0 +1,4 @@
+.matrix {
+  display: flex;
+  border-collapse: collapse;
+}

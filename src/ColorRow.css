@@ -1,0 +1,21 @@
+.box {
+  width: 40px;
+  position: relative;
+  height: 40px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.value {
+  position: absolute;
+  left: 30;
+  width: 60px;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  overflow: visible;
+}
